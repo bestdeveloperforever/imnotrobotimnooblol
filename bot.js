@@ -7977,49 +7977,34 @@ return message.reply("**Member Has Muted .. :white_check_mark: .. تم اعطا�
 
 
 
-client.on('message', message => {
-	var prefix = "-";
-   if(!message.channel.guild) return;
-if(message.content.startsWith(prefix + 'clear')) {
-if(!message.channel.guild) return message.channel.send('**This Command is Just For Servers**').then(m => m.delete(5000));
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return      message.channel.send('**You Do not have permission** `MANAGE_MESSAGES`' );
-let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-let request = `Requested By ${message.author.username}`;
-message.channel.send(`**Are You sure you want to clear the chat?**`).then(msg => {
-msg.react('✅')
-.then(() => msg.react('❌'))
-.then(() =>msg.react('✅'))
-
-let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
-let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
-
-let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
-let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
-reaction1.on("collect", r => {
-message.channel.send(`Chat will delete`).then(m => m.delete(5000));
+client.on("message", message => {
+    var args = message.content.substring(prefix.length).split(" ");
+    if (message.content.startsWith(prefix + "clear")) {
+        if(!message.channel.guild) return      
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**⚠ |You Dont Have Permission -MANAGE_MESSAGES- صلاحية لمسح الشات| ⚠**');
 var msg;
-        msg = parseInt();
+msg = parseInt();
 
-      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-      message.channel.sendMessage("", {embed: {
-        title: "`` Chat Deleted ``",
-        color: 0x06DF00,
-        footer: {
-
-        }
-      }}).then(msg => {msg.delete(3000)});
-
-})
-reaction2.on("collect", r => {
-message.channel.send(`**Chat deletion cancelled**`).then(m => m.delete(5000));
-msg.delete();
-})
-})
+message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+message.channel.sendMessage("", {embed: {
+title: "``تــم مسح الشات | Chat Deleted``",
+color: 0x06DF00,
+footer: {
+  
 }
+}}).then(msg => {msg.delete(3000)});
+                  }
+
+
 });
 
 
+client.on ("guildMemberAdd", member => {
 
+   var role = member.guild.roles.find ("name", "USERS");
+   member.addRole (role);
+  
+})
 
 
 
@@ -8743,7 +8728,7 @@ message.channel.sendEmbed(embed)
 client.on('message', ( message ) => {
   if(message.author.bot) return;
 
-  if(message.channel.id !== '460067600047800330') return;
+  if(message.channel.id !== '474669211143110669') return;
   let types = [
     'jpg',
     'jpeg',
@@ -8807,7 +8792,7 @@ client.on('message',function(message) {
 
 
 client.on('guildCreate', guild => {
-  client.channels.get("460066242070446080")
+  client.channels.get("474670372122525716")
 const embed = new Discord.RichEmbed()
    .setAuthor(`Joined New Server ✅`)
    .setDescription(`
@@ -8815,14 +8800,14 @@ Server name: __${guild.name}__
 Server owner: __${guild.owner}__`)
          .setColor("#09fa2a")
          .setFooter('DK BOT' , client.user.avatarURL)
-           client.channels.get("460066242070446080").send({embed});
+           client.channels.get("474670372122525716").send({embed});
 }
 
 );
 
          
 client.on('guildDelete', guild => {
-  client.channels.get("460066242070446080")
+  client.channels.get("474670372122525716")
 const embed = new Discord.RichEmbed()
    .setAuthor(`Left From Server ❌`)
    .setDescription(`
@@ -8830,7 +8815,7 @@ Server name: __${guild.name}__
 Server owner: __${guild.owner}__`)
          .setColor("#ff0000")
          .setFooter('DK BOT' , client.user.avatarURL)
-           client.channels.get("460066242070446080").send({embed});
+           client.channels.get("474670372122525716").send({embed});
 }
 
 );
@@ -8875,7 +8860,7 @@ client.on('message', function(message) {
         .setThumbnail(`${message.author.avatarURL}`)
         .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
         .setFooter(`From **${message.author.tag} (${message.author.id})**`)
-    client.channels.get("464113035447894026").send({embed:DK});
+    client.channels.get("474687521251393547").send({embed:DK});
     }
 });   
    
@@ -8958,47 +8943,6 @@ if(!args[0]) return message.reply('Please Type Some word after the command | ا�
 
 
 
-var dat = JSON.parse("{}");
-function forEachObject(obj, func) {
-    Object.keys(obj).forEach(function (key) { func(key, obj[key]) })
-}
-client.on("ready", () => {
-    var guild;
-    while (!guild)
-        guild = client.guilds.find("name", "DK Community")
-    guild.fetchInvites().then((data) => {
-        data.forEach((Invite, key, map) => {
-            var Inv = Invite.code;
-            dat[Inv] = Invite.uses;
-        })
-    })
-})
-client.on("guildMemberAdd", (member) => {
-    let channel = member.guild.channels.find('name', 'invites');
-    if (!channel) {
-        console.log("!channel fails");
-        return;
-    }
-    if (member.id == client.user.id) {
-        return;
-    }
-    console.log('made it till here!');
-    var guild;
-    while (!guild)
-        guild = client.guilds.find("name", "DK Community")
-    guild.fetchInvites().then((data) => {
-        data.forEach((Invite, key, map) => {
-            var Inv = Invite.code;
-            if (dat[Inv])
-                if (dat[Inv] < Invite.uses) {
-                    console.log(3);
-                    console.log(`${member} joined over ${Invite.inviter}'s invite ${Invite.code}`)
- channel.send(`<@${member.user.id}>**Joined,** Invited by ${Invite.inviter}`)            
- }
-            dat[Inv] = Invite.uses;
-        })
-    })
-});
 
 
 
