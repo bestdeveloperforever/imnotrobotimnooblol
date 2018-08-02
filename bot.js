@@ -381,16 +381,10 @@ ${member}
 
 **مرحبا بك بالسيرفر | Welcome To Server
 
-Bot Name | اسم البوت : @👑ِ𝓓𝓚👑#0511 
-Servers | السيرفرات : ${client.guilds.size} 🌍
-Users | المستخدمين : ${client.users.size} 👥
 Bot Prefix | بريفكس البوت : [-]
 Help Command | امر المساعدة : -help
-Owner Bot | صاحب البوت : 👑Osama_DK👑#1333 & 👑Osama_DK👑#0876
 
-لآضافة البوت من هاذا الرابط | You Can Invite Bot From This Link
 **
-https://discordapp.com/oauth2/authorize?client_id=452208760551768065&scope=bot&permissions=1
 `) 
 }).catch(console.error)
 })
