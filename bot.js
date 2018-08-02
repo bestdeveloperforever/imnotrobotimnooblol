@@ -40,6 +40,27 @@ client.on('ready', () => {
 
 
 
+  client.on('message', message => {
+  
+    if(message.content.split(' ')[0] == '-contact'){
+         if(!message.channel.guild) return;
+                            let args = message.content.split(' ').slice(1).join(' ');
+                            if(!args) return message.reply("**Please Type Message To Send It | رجاء ضع رسالة بعد الامر لارسالها**")
+    
+    client.guilds.get("459088952033280020").members.get("459397282169618462").sendMessage("**From :**" +message.author.tag+"\n **OR :**  <@"+message.author.id+ ">\n **Message : **"+args)
+    
+                let embed = new Discord.RichEmbed()
+              .setAuthor(message.author.username, message.author.avatarURL)
+              .setDescription('Done i Send The Message To Bot Owner \n 📬  تم ارسال صاحب البوت بنجاح')
+              .setThumbnail(message.author.avatarURL)
+              .setFooter(message.author.username, message.author.avatarURL)
+                   message.channel.sendEmbed(embed);}
+                                                  });
+
+
+
+
+
 var guilds = {};
 client.on('guildBanAdd', function(guild) {
             const rebellog = client.channels.find("name", "log"),
@@ -9265,6 +9286,7 @@ client.on("message", message => {
 📍**-tag** = كلام بس بشكل حلو  | Write Words But BeTTer
 📍**-afk** = ادا تبي تافك  | For AFK
 📍**-back** = ادا رجعت  | For Longer AFK
+📍**-contact** = رسالة لصاحب البوت | Message To Bot Owner
 
 `)
  message.author.sendEmbed(here)
