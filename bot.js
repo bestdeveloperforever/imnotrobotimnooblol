@@ -8332,7 +8332,7 @@ message.react("??")
                     .setColor("RED")
                     .setThumbnail(message.author.avatarURL)
                     .setFooter("DK BOT", client.user.avatarURL)
-                	 embed.setTitle("**:arrow_right: Click To Invite DK BOT \n :arrow_right: اضغط هنا لاضافة البوت **")
+                	 embed.setTitle("**\n :arrow_right: Click To Invite DK BOT **")
                     .setURL("https://discordapp.com/oauth2/authorize?client_id=452208760551768065&scope=bot&permissions=1");
                    message.channel.sendEmbed(embed);
                   }
