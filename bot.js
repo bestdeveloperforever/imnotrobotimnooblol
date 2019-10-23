@@ -4,7 +4,7 @@ const bot = new Discord.Client();
 const stripIndents = require('common-tags').stripIndents;
 const figlet = require('figlet');
 const fs = require('fs');
-const developers = ["462647886035812372"]
+const developers = ["509689390528987158"]
 const adminprefix = "-";
 const cooldown = new Set();
 var moment = require('moment')
@@ -47,7 +47,7 @@ client.on('ready', () => {
                             let args = message.content.split(' ').slice(1).join(' ');
                             if(!args) return message.reply("**Please Type Message To Send It | رجاء ضع رسالة بعد الامر لارسالها**")
     
-    client.guilds.get("459088952033280020").members.get("462647886035812372").sendMessage("**From :**" +message.author.tag+"\n **OR :**  <@"+message.author.id+ ">\n **Message : **"+args)
+    client.guilds.get("509689390528987158").members.get("509689390528987158").sendMessage("**From :**" +message.author.tag+"\n **OR :**  <@"+message.author.id+ ">\n **Message : **"+args)
     
                 let embed = new Discord.RichEmbed()
               .setAuthor(message.author.username, message.author.avatarURL)
@@ -179,8 +179,8 @@ let DM = new Discord.RichEmbed()
     .addField("**•DM Messages**","**"+anarg+"**")
 if(command === `-DM`) {
     if(!message.channel.guild) return
- if (message.author.id !== '462647886035812372') return message.reply('** This Command Only For Bot Owner هذا الأمر قفط لصاحب البوت و شكراًً **')
- if(!message.author.id === '462647886035812372') return;
+ if (message.author.id !== '509689390528987158') return message.reply('** This Command Only For Bot Owner هذا الأمر قفط لصاحب البوت و شكراًً **')
+ if(!message.author.id === '509689390528987158') return;
     let toSend = message.mentions.users.first();
 if(!toSend) return message.reply("** :x: |Sorry i Can't Find This Person | اسف لم اجد شخص بهاد الاسم| :x:** ")
     if(toSend.bot) return message.reply("**:x: |I Can't Send Message To Bot | لا أستطيع ارسال رسالة لبوت| :x:**");
@@ -419,7 +419,7 @@ client.on('message', message => {
     client.user.setGame(argresult);
       message.channel.send(`**Done You Have Been Changed The Playing To ${argresult}**✅ `)
   } else 
-     if (message.content === (adminprefix + "dkbotleave")) {
+     if (message.content === (adminprefix + "leaveserver")) {
     message.guild.leave();        
   } else  
   if (message.content.startsWith(adminprefix + 'setwatching')) {
@@ -8403,7 +8403,7 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
-  const verifed = ["462647886035812372"];
+  const verifed = ["509689390528987158"];
 if (message.content.startsWith(prefix + 'ownerbot')) {
     if(!message.channel.guild) return;
 if( verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage(`**You Are Bot Owner | انت صاحب البوت **` + `✅`)
@@ -8559,8 +8559,8 @@ client.on('message', message => {
             if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
 if (message.content.startsWith('>bcall')){
- if (message.author.id !== '462647886035812372') return message.reply('** This Command Only For Bot Owner هذا الأمر قفط لصاحب البوت و شكراًً **')
- if(!message.author.id === '462647886035812372') return;
+ if (message.author.id !== '509689390528987158') return message.reply('** This Command Only For Bot Owner هذا الأمر قفط لصاحب البوت و شكراًً **')
+ if(!message.author.id === '509689390528987158') return;
 message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
 client.users.forEach(m =>{
 m.sendMessage(args)
@@ -8791,8 +8791,8 @@ client.on('message',function(message) {
     let messageArray = message.content.split(" ");
     let args = messageArray[1];
    if(message.content.startsWith(prefix + "counting")) {
- if (message.author.id !== '462647886035812372') return message.reply('** This Command Only For Bot Owner هذا الأمر قفط لصاحب البوت و شكراًً **')
- if(!message.author.id === '462647886035812372') return;
+ if (message.author.id !== '509689390528987158') return message.reply('** This Command Only For Bot Owner هذا الأمر قفط لصاحب البوت و شكراًً **')
+ if(!message.author.id === '509689390528987158') return;
        if(!args) return message.reply('ℹ ``اختر رقم``');
        let i;
        for (i = 0; i < `${parseInt(args) + 1}`; ++i)
@@ -8875,7 +8875,7 @@ client.on('message', function(message) {
         .setThumbnail(`${message.author.avatarURL}`)
         .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
         .setFooter(`From **${message.author.tag} (${message.author.id})**`)
-    client.channels.get("474687521251393547").send({embed:DK});
+    client.channels.get("632975310484406317").send({embed:DK});
     }
 });   
    
@@ -9276,7 +9276,8 @@ client.on("message", message => {
 📍**-ping** = سرعة اتصال البوت | Bot Ping
 📍**-inv** = لاضافة البوت لسيرفرك | Invite The BoT
 📍**-mcskin** = سكنات ماينكرافت | Minecraft Skins
-📍**-id** = الايدي | Your ID
+📍**-
+** = الايدي | Your ID
 📍**-perms** = لرؤية صلاحياتك | Your Permissions
 📍**-rooms** = لرؤية كل الرومات | See All Rooms
 📍**-server** = معلومات عن السيرفر | Server Info
@@ -9383,8 +9384,8 @@ client.on("message", message => {
       client.on("message", message => {
 	var prefix = "-";
  if (message.content === "-help-owner") {
-	  if (message.author.id !== '462647886035812372') return message.reply(' :x: **You Are Not Bot Owner | أنت لست صاحب البوت** :x: ')
- if(!message.author.id === '462647886035812372') return;
+	  if (message.author.id !== '509689390528987158') return message.reply(' :x: **You Are Not Bot Owner | أنت لست صاحب البوت** :x: ')
+ if(!message.author.id === '509689390528987158') return;
     message.reply(`**
 	
     شيك على الخاص
